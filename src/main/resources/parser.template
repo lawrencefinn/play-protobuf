@@ -1,0 +1,23 @@
+{{#javaPackage}}
+package {{javaPackage}}.parsers;
+{{/javaPackage}}
+
+import com.google.inject.Inject;
+import io.caboose.protobuf.parsers.ProtobufParser;
+import play.api.http.HttpConfiguration;
+import play.http.HttpErrorHandler;
+
+public class {{inputShortName}}Parser extends ProtobufParser<{{input}}> {
+
+    @Override
+    protected Class<{{input}}> getClazz() {
+        return {{input}}.class;
+    }
+
+    @Inject
+    protected {{inputShortName}}Parser(HttpConfiguration httpConfiguration, HttpErrorHandler errorHandler, String errorMessage
+                          ) throws NoSuchMethodException  {
+        super(httpConfiguration, errorHandler, errorMessage);
+    }
+
+}

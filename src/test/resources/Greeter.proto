@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "protos.com.example";
+
+package helloworld;
+
+service Greeter {
+  rpc SayHello (protos.com.example.tutorial.AddressBookProtos.Person.PhoneNumber) returns (protos.com.example.tutorial.AddressBookProtos.Person.PhoneNumber) {}
+}
+

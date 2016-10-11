@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+{{#javaPackage}}
+option java_package = "{{javaPackage}}";
+{{/javaPackage}}
+
+{{#pseudoPackage}}
+package {{pseudoPackage}};
+{{/pseudoPackage}}
+
+service {{name}} {
+{{#functions}}
+  rpc {{functionName}} ({{input}}) returns ({{output}}) {}
+{{/functions}}
+}
+

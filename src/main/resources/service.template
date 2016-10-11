@@ -1,0 +1,37 @@
+{{#javaPackage}}
+package {{javaPackage}}.controllers;
+{{/javaPackage}}
+import io.caboose.protobuf.ProtobufService;
+import io.caboose.protobuf.models.RPCType;
+import play.mvc.*;
+
+{{#pseudoPackage}}
+@ProtobufService.Service(packageName = "{{pseudoPackage}}")
+{{/pseudoPackage}}
+{{^pseudoPackage}}
+@ProtobufService.Service()
+{{/pseudoPackage}}
+public class {{name}} extends Controller {
+{{#functions}}
+
+    @ProtobufService.Output(value = {{output}}.class, rpcType = RPCType.{{outputType}})
+    @ProtobufService.Input(value = {{input}}.class, rpcType = RPCType.{{inputType}})
+    @BodyParser.Of({{inputShortName}}Parser.class)
+    public Result {{functionName}}({{input}} input) {
+        {{output}} dummy = {{output}}.newBuilder().build();
+        return ProtobufService.ok(dummy);
+    }
+
+    //This function is used by play's internal router
+    @ProtobufService.Output(value = {{output}}.class, rpcType = RPCType.{{outputType}})
+    @BodyParser.Of({{inputShortName}}Parser.class)
+    public Result {{functionName}}() {
+        {{input}} input = request().body().as({{input}}.class);
+        return {{functionName}}(input);
+    }
+{{/functions}}
+
+
+}
+
+

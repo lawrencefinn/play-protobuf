@@ -1,0 +1,2 @@
+POST     /helloworld.Greeter/SayHello               io.caboose.protobuftest.controllers.Greeter.SayHello
+POST     /io.caboose.protobuftest.controllers.Greeter/SayHello     io.caboose.protobuftest.controllers.Greeter.SayHello

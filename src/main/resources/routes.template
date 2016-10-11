@@ -1,0 +1,8 @@
+{{#services}}
+{{#functions}}
+{{#pseudoPackage}}
+POST     /{{pseudoPackage}}.{{name}}/{{functionName}}               {{javaPackage}}.controllers.{{name}}.{{functionName}}
+{{/pseudoPackage}}
+POST     /{{javaPackage}}.controllers.{{name}}/{{functionName}}     {{javaPackage}}.controllers.{{name}}.{{functionName}}
+{{/functions}}
+{{/services}}

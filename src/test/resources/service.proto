@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.caboose.protobuftest";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (AddressBookProtos.Person.PhoneNumber) returns (AddressBookProtos.Person.PhoneNumber) {}
+}
+
+

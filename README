@@ -1,4 +1,0 @@
-protoc --encode tutorial.Person.PhoneNumber protos/addressbook.proto < /tmp/in > /tmp/to
-
-
-protoc --decode tutorial.Person.PhoneNumber protos/addressbook.proto < /tmp/t
