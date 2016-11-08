@@ -37,5 +37,3 @@ protoc --plugin=protoc-gen-grpc-java=/usr/local/bin/protoc-gen-grpc-java --grpc-
 
 nghttpx -s -f"0.0.0.0,9001;no-tls" -b127.0.0.1,9000
 
-
-java -DmodelDocs=false -Dmodels -Dapis=false  -jar swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.json --library=jersey2 -l java -o boops
